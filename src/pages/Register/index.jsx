@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/Logo.svg";
 import { Button } from "../../components/Button";
-import { StyledMain } from "../login/style";
 import { StyledDivTitle, StyledFormRegister } from "./style";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -9,6 +8,7 @@ import { Input } from "../../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterSchema } from "./registerSchema";
 import { Select } from "../../components/Select";
+import { StyledMain } from "../Login/style";
 
 export const Register = ({ registerUser }) => {
   const {

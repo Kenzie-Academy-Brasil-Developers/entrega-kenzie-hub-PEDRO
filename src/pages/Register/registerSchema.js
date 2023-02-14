@@ -17,7 +17,7 @@ export const RegisterSchema = yup.object().shape({
     .max(15, "A senha não pode ter mais de 15 caracteres")
     .matches(
       validPassWord,
-      "Sua senha precisa: Possuir pelo menos um número; Apresentar pelo menos um caractere especial; ($,#,@,!,etc); Ter ao menos uma letra minúscula;  Ter ao menos uma letra maiúscula."
+      "Sua senha precisa possuir: pelo menos 1 número; Apresentar pelo menos 1 caractere especial; ($,#,@,!,etc); Ter ao menos 1 letra minúscula;  Ter ao menos 1 letra maiúscula."
     ),
   confirmPassword: yup
     .string()

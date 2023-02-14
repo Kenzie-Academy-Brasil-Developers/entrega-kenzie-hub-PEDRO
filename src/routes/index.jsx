@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 export const AppRoutes = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const registerUser = async (formData) => {
     try {
