@@ -30,6 +30,7 @@ export const AppRoutes = () => {
       navigate("/dashboard");
       toast.success("Login feito com sucesso!");
     } catch (error) {
+      toast.error("Email ou senha inválidos");
       console.log(error.response.data.message);
     }
   };
