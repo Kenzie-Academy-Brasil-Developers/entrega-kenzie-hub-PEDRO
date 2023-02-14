@@ -7,7 +7,7 @@ export const StyledDivTitle = styled.div`
   max-width: 369px;
   margin-top: 40px;
 
-  button {
+  .backToLogin {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -27,6 +27,8 @@ export const StyledDivTitle = styled.div`
     text-align: center;
 
     color: #f8f9fa;
+    width: 79.54px;
+    height: 31.95px;
   }
 
   a {

@@ -17,7 +17,6 @@ export const StyledFormLogin = styled.form`
   align-items: center;
   width: 100%;
   max-width: 369px;
-  height: 502px;
   background: #212529;
   box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.25);
   border-radius: 4px;
@@ -39,6 +38,7 @@ export const StyledFormLogin = styled.form`
     justify-content: flex-start;
     gap: 20px;
     width: 100%;
+    padding-bottom: 40px;
   }
 
   label {
@@ -114,9 +114,27 @@ export const StyledFormLogin = styled.form`
       color: #868e96;
     }
 
-    button {
-      background-color: #868e96;
-      border: #868e96;
+    .goToRegister {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 22.3336px;
+      gap: 10.15px;
+
+      width: 100%;
+      height: 48px;
+      background: #868e96;
+
+      border: 1.2182px solid #868e96;
+      border-radius: 4px;
+
+      font-style: normal;
+      font-weight: 500;
+      font-size: 12.8347px;
+      line-height: 21px;
+
+      color: #f8f9fa;
     }
 
     a {

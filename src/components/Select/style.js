@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.fieldset`
+export const StyledSelect = styled.fieldset`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -17,27 +17,26 @@ export const StyledInput = styled.fieldset`
     color: #f8f9fa;
   }
 
-  input {
-    display: flex;
+  select {
     flex-direction: row;
     align-items: center;
     padding: 0px 16.2426px;
     gap: 10.15px;
 
-    width: 100%;
+    width: 329.93px;
     height: 48px;
 
     background: #343b41;
 
-    border: 1.2182px solid #f8f9fa;
+    border: 1.2182px solid #343b41;
     border-radius: 4px;
 
     font-style: normal;
     font-weight: 400;
-    font-size: 1.0152rem;
-    line-height: 1.625rem;
+    font-size: 16.2426px;
+    line-height: 26px;
 
-    color: #f8f9fa;
+    color: #868e96;
   }
 
   p {

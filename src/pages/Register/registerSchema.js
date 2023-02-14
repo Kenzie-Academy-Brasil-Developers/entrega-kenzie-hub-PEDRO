@@ -1,7 +1,8 @@
 import * as yup from "yup";
 
 const phoneNumber = /[1-9]{2} 9[1-9]\d{3}\d{4}/;
-const validPassWord = /[a-z][0-9][A-z]/;
+const validPassWord =
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/;
 
 export const RegisterSchema = yup.object().shape({
   name: yup.string().required("O nome é obrigatório"),
@@ -13,15 +14,15 @@ export const RegisterSchema = yup.object().shape({
     .string()
     .required("A senha é obrigatória")
     .min(8, "A senha precisa ter pelo menos 8 caracteres")
-    // .matches(
-    //   validPassWord,
-    //   "A senha precisa conter caracteres especiais e letras maiúsculas"
-    // )
-    .max(15, "A senha não pode ter mais de 15 caracteres"),
+    .max(15, "A senha não pode ter mais de 15 caracteres")
+    .matches(
+      validPassWord,
+      "Sua senha precisa: Possuir pelo menos um número; Apresentar pelo menos um caractere especial; ($,#,@,!,etc); Ter ao menos uma letra minúscula;  Ter ao menos uma letra maiúscula."
+    ),
   confirmPassword: yup
     .string()
-    .required("Confirmar senha é obrigatório")
-    .oneOf([yup.ref("password")], "As senhas não coincidem"),
+    .required("Confirmar a senha é obrigatório")
+    .oneOf([yup.ref("password"), null], "As senhas não correspondem"),
   bio: yup.string().required("A bio é obrigatória"),
   contact: yup
     .string()

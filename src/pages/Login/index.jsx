@@ -3,35 +3,51 @@ import logo from "../../assets/Logo.svg";
 import { StyledFormLogin, StyledMain } from "./style";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { Input } from "../../components/Input";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginSchema } from "./loginSchema";
 
-export const Login = () => {
+export const Login = ({ loginUser }) => {
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm();
+    reset,
+  } = useForm({ resolver: yupResolver(LoginSchema) });
+
+  const submit = (formData) => {
+    loginUser(formData);
+    reset();
+    console.log(formData);
+  };
 
   return (
     <StyledMain>
       <div className="imgLogo">
         <img src={logo} alt="Kenzie Hub" />
       </div>
-      <StyledFormLogin>
+      <StyledFormLogin onSubmit={handleSubmit(submit)}>
         <h3>Login</h3>
-        <div className="divEmail">
-          <label htmlFor="email">Email</label>
-          <input type="email" placeholder="Digite aqui seu email" />
-        </div>
-        <div className="divPassword">
-          <label htmlFor="password">Senha</label>
-          <input type="password" placeholder="Digite aqui sua senha" />
-        </div>
+        <Input
+          label={"Email"}
+          type={"email"}
+          placeholder={"Digite aqui seu email"}
+          register={register("email")}
+          error={errors.email}
+        />
+        <Input
+          label={"Senha"}
+          type={"password"}
+          placeholder={"Digite aqui sua senha"}
+          register={register("password")}
+          error={errors.password}
+        />
         <Button>Entrar</Button>
         <div className="divRegister">
           <p>Ainda não possui uma conta?</p>
-          <Button>
+          <div className="goToRegister">
             <Link to="/register">Cadastre-se</Link>
-          </Button>
+          </div>
         </div>
       </StyledFormLogin>
     </StyledMain>

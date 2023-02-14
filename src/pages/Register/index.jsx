@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "../../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { RegisterSchema } from "./registerSchema";
+import { Select } from "../../components/Select";
 
 export const Register = ({ registerUser }) => {
   const {
@@ -29,9 +30,9 @@ export const Register = ({ registerUser }) => {
     <StyledMain>
       <StyledDivTitle>
         <img src={logo} alt="Kenzie Hub" />
-        <Button>
+        <div className="backToLogin">
           <Link to="/">Voltar</Link>
-        </Button>
+        </div>
       </StyledDivTitle>
       <StyledFormRegister onSubmit={handleSubmit(submit)} noValidate>
         <div className="divInfo">
@@ -64,7 +65,7 @@ export const Register = ({ registerUser }) => {
           type={"password"}
           placeholder={"Digite novamente sua senha"}
           register={register("confirmPassword")}
-          error={errors.password}
+          error={errors.confirmPassword}
         />
         <Input
           label={"Bio"}
@@ -80,13 +81,18 @@ export const Register = ({ registerUser }) => {
           register={register("contact")}
           error={errors.contact}
         />
-        <Input
+        <Select
           label={"Selecionar módulo"}
-          type={"text"}
-          placeholder={"Primeiro Módulo"}
           register={register("course_module")}
           error={errors.course_module}
-        />
+        >
+          <option value="Primeiro Módulo">Primeiro Módulo</option>
+          <option value="Segundo Módulo">Segundo Módulo</option>
+          <option value="Terceiro Módulo">Terceiro Módulo</option>
+          <option value="Quarto Módulo">Quarto Módulo</option>
+          <option value="Quinto Módulo">Quinto Módulo</option>
+          <option value="Sexto Módulo">Sexto Módulo</option>
+        </Select>
         <Button>Cadastrar</Button>
       </StyledFormRegister>
     </StyledMain>

@@ -11,7 +11,7 @@ export const Input = ({ label, type, placeholder, register, error }) => {
         placeholder={placeholder}
         {...register}
       />
-      <span>{error && <p>{error.message}</p>} </span>
+      {error && <p>{error.message}</p>}
     </StyledInput>
   );
 };

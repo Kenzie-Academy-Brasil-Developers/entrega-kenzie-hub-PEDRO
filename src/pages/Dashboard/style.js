@@ -59,6 +59,11 @@ export const StyledDashboardMain = styled.main`
       margin: 0 auto;
       padding: 10px;
       background: #121214;
+
+      @media (max-width: 570px) {
+        flex-direction: column;
+        gap: 10px;
+      }
     }
 
     h2 {
