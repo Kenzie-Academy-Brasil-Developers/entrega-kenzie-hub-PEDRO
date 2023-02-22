@@ -1,21 +1,17 @@
-import { StyledContainer } from "../../styles/grid";
+import { useContext } from "react";
 import logo from "../../assets/Logo.svg";
 import { Button } from "../../components/Button";
+import { UserContext } from "../../providers/UserContext";
 import { StyledDashboardHeader, StyledDashboardMain } from "./style";
-import { useNavigate } from "react-router-dom";
 
-export const Dashboard = ({ user }) => {
-  const navigate = useNavigate();
-  const exit = () => {
-    navigate("/");
-    localStorage.clear();
-  };
+export const Dashboard = () => {
+  const { user, userLogout } = useContext(UserContext);
   return (
     <>
       <StyledDashboardHeader>
         <nav>
           <img src={logo} alt="Kenzie Hub" />
-          <Button action={() => exit()}>Sair</Button>
+          <Button action={() => userLogout()}>Sair</Button>
         </nav>
       </StyledDashboardHeader>
       <StyledDashboardMain>

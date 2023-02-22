@@ -6,8 +6,12 @@ import { useForm } from "react-hook-form";
 import { Input } from "../../components/Input";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "./loginSchema";
+import { UserContext } from "../../providers/UserContext";
+import { useContext } from "react";
 
-export const Login = ({ loginUser }) => {
+export const Login = () => {
+  const { userLogin } = useContext(UserContext);
+
   const {
     handleSubmit,
     register,
@@ -16,9 +20,8 @@ export const Login = ({ loginUser }) => {
   } = useForm({ resolver: yupResolver(LoginSchema) });
 
   const submit = (formData) => {
-    loginUser(formData);
+    userLogin(formData);
     reset();
-    console.log(formData);
   };
 
   return (
