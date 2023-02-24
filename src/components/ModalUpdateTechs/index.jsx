@@ -43,7 +43,9 @@ export const ModalUpdateTechs = () => {
       <StyledModalUpdateForm onSubmit={handleSubmit(submit)}>
         <div className="divClose">
           <h2>Tecnologia Detalhes</h2>
-          <Button action={() => setUpdateModal(null)}>X</Button>
+          <Button action={() => setUpdateModal(null)} className={"closeButton"}>
+            X
+          </Button>
         </div>
         <Input
           label={"Nome da tecnologia"}

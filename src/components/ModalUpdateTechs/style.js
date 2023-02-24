@@ -43,7 +43,7 @@ export const StyledModalUpdateForm = styled.form`
     color: #f8f9fa;
   }
 
-  button {
+  .closeButton {
     width: 8.79px;
     height: 20.79px;
 
@@ -55,13 +55,13 @@ export const StyledModalUpdateForm = styled.form`
     border: none;
     background: none;
     color: #868e96;
-    margin-right: 20px;
+    margin-right: 21.5px;
   }
 
   .divButtons {
     display: flex;
     width: 100%;
-    gap: 5px;
+    gap: 25px;
     margin-bottom: 35px;
 
     .saveButton {
@@ -69,10 +69,9 @@ export const StyledModalUpdateForm = styled.form`
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding: 0px 22.3336px;
       gap: 10.15px;
 
-      min-width: 68%;
+      width: 100%;
       height: 48px;
 
       background: #59323f;
@@ -98,10 +97,9 @@ export const StyledModalUpdateForm = styled.form`
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      padding: 0px 22.3336px;
       gap: 10.15px;
 
-      min-width: 26%;
+      width: 40%;
       height: 48px;
 
       background: #343b41;
