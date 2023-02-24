@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
-export const StyledSelect = styled.fieldset`
+export const StyledInputPassword = styled.fieldset`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 20px;
   width: 100%;
   border: none;
+
+  position: relative;
 
   label {
     font-style: normal;
@@ -17,7 +19,8 @@ export const StyledSelect = styled.fieldset`
     color: #f8f9fa;
   }
 
-  select {
+  input {
+    display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px 16.2426px;
@@ -28,18 +31,32 @@ export const StyledSelect = styled.fieldset`
 
     background: #343b41;
 
-    border: 1.2182px solid #343b41;
+    border: 1.2182px solid #f8f9fa;
     border-radius: 4px;
 
     font-style: normal;
     font-weight: 400;
-    font-size: 16.2426px;
-    line-height: 26px;
+    font-size: 1.0152rem;
+    line-height: 1.625rem;
 
-    color: #868e96;
+    color: #f8f9fa;
   }
 
   p {
     color: #e83f5b;
+  }
+
+  button {
+    background: none;
+    border: none;
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    width: 80px;
+
+    :hover {
+      background: none;
+      border: none;
+    }
   }
 `;

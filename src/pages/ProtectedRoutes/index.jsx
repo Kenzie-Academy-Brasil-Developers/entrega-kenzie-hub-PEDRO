@@ -1,17 +1,18 @@
-import { useContext, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Navigate, Outlet } from "react-router-dom";
 import { UserContext } from "../../providers/UserContext";
+import logo from "../../assets/Logo.svg";
+import { StyledMainLoad } from "./style";
 
 export const ProtectedRoutes = () => {
-  const { user } = useContext(UserContext);
+  const { user, loading } = useContext(UserContext);
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-    }
-  }, []);
-
-  return <>{user ? <Outlet /> : null}</>;
+  if (loading) {
+    return (
+      <StyledMainLoad>
+        <img src={logo} alt="Logo" />
+      </StyledMainLoad>
+    );
+  }
+  return <>{user ? <Outlet /> : <Navigate to={"/"} />}</>;
 };

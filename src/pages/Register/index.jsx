@@ -10,6 +10,7 @@ import { RegisterSchema } from "./registerSchema";
 import { Select } from "../../components/Select";
 import { StyledMain } from "../Login/style";
 import { UserContext } from "../../providers/UserContext";
+import { InputPassword } from "../../components/InputPassword";
 
 export const Register = () => {
   const { userRegister } = useContext(UserContext);
@@ -55,14 +56,14 @@ export const Register = () => {
           register={register("email")}
           error={errors.email}
         />
-        <Input
+        <InputPassword
           label={"Senha"}
           type={"password"}
           placeholder={"Digite aqui sua senha"}
           register={register("password")}
           error={errors.password}
         />
-        <Input
+        <InputPassword
           label={"Confirmar Senha"}
           type={"password"}
           placeholder={"Digite novamente sua senha"}
@@ -95,7 +96,7 @@ export const Register = () => {
           <option value="Quinto Módulo">Quinto Módulo</option>
           <option value="Sexto Módulo">Sexto Módulo</option>
         </Select>
-        <Button>Cadastrar</Button>
+        <Button className={"registerButton"}>Cadastrar</Button>
       </StyledFormRegister>
     </StyledMain>
   );

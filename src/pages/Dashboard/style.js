@@ -42,7 +42,6 @@ export const StyledDashboardMain = styled.main`
   flex-direction: column;
   background: #121214;
   min-height: 100vh;
-
   .sectionBio {
     border-bottom: 1px solid #343b41;
     border-top: 1px solid #343b41;
@@ -87,34 +86,120 @@ export const StyledDashboardMain = styled.main`
 
   .sectionInfos {
     margin-top: 30px;
-    div {
+    width: 100%;
+    padding: 10px;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    h1 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+      padding-top: 30px;
+      color: #f8f9fa;
+    }
+    .titleTechs {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
+      align-items: center;
+      justify-content: space-between;
       width: 100%;
+      padding-top: 5px;
       gap: 30px;
       max-width: 1000px;
       margin: 0 auto;
-      padding: 10px;
       background: #121214;
     }
 
     h2 {
       font-style: normal;
-      font-weight: 700;
-      font-size: 1.125rem;
-      line-height: 1.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.125rem;
 
       color: #f8f9fa;
     }
 
-    p {
-      font-style: normal;
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 1.5rem;
+    button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      color: #ffffff;
+      width: 32.49px;
+      height: 32px;
+
+      border-radius: 4px;
+      border: none;
+      background: #212529;
+    }
+
+    img {
+      width: 10.72px;
+      height: 10.56px;
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    gap: 35px;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 33px 23px;
+
+    background: #212529;
+    border-radius: 4px;
+    margin-bottom: 30px;
+
+    .openModalButton {
+      width: 100%;
+      min-width: 100%;
+    }
+
+    @media (max-width: 426px) {
+      padding: 20px 10px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 49px;
+      width: 100%;
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+
+      :hover {
+        background: #343b41;
+      }
+
+      background: #121214;
+      border-radius: 4px;
+      h3 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 0.8881rem;
+        line-height: 1.375rem;
+
+        color: #ffffff;
+      }
+
+      h4 {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.7614rem;
+        line-height: 1.375rem;
+
+        color: #868e96;
+      }
     }
   }
 `;

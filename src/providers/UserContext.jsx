@@ -10,9 +10,11 @@ export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [techs, setTechs] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("TOKEN");
+    const token = localStorage.getItem("@TOKEN");
     if (token) {
       const userAutoLogin = async () => {
         try {
@@ -22,9 +24,12 @@ export const UserProvider = ({ children }) => {
             },
           });
           setUser(response.data);
+          setTechs(response.data.techs);
           navigate("/dashboard");
         } catch (error) {
           console.log(error);
+        } finally {
+          setLoading(false);
         }
       };
       userAutoLogin();
@@ -34,8 +39,8 @@ export const UserProvider = ({ children }) => {
   const userRegister = async (formData) => {
     try {
       const response = await Api.post("/users", formData);
-      toast.success("Conta criada com sucesso!");
       navigate("/");
+      toast.success("Conta criada com sucesso!");
     } catch (error) {
       toast.error("Ops! Algo deu errado");
     }
@@ -45,9 +50,10 @@ export const UserProvider = ({ children }) => {
     try {
       const response = await Api.post("/sessions", formData);
       setUser(response.data.user);
+      setTechs(response.data.user.techs);
       localStorage.setItem("@TOKEN", response.data.token);
-      toast.success("Login feito com sucesso!");
       navigate("/dashboard");
+      toast.success("Login feito com sucesso!");
     } catch (error) {
       toast.error("Email ou senha inválidos");
     }
@@ -60,7 +66,17 @@ export const UserProvider = ({ children }) => {
   };
 
   return (
-    <UserContext.Provider value={{ user, userRegister, userLogin, userLogout }}>
+    <UserContext.Provider
+      value={{
+        user,
+        userRegister,
+        userLogin,
+        userLogout,
+        loading,
+        techs,
+        setTechs,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

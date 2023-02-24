@@ -83,7 +83,14 @@ export const StyledFormRegister = styled.form`
     }
   }
 
-  button {
+  fieldset {
+    button {
+      top: 37px;
+      color: #ffffff;
+    }
+  }
+
+  .registerButton {
     display: flex;
     flex-direction: row;
     justify-content: center;

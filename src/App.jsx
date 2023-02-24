@@ -8,13 +8,12 @@ function App() {
       <AppRoutes />
       <ToastContainer
         position="top-right"
-        autoClose={4000}
+        autoClose={2500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
         draggable
-        pauseOnHover
         theme="dark"
       />
     </div>

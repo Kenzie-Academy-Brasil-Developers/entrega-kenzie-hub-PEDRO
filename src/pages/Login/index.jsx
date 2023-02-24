@@ -8,6 +8,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "./loginSchema";
 import { UserContext } from "../../providers/UserContext";
 import { useContext } from "react";
+import { InputPassword } from "../../components/InputPassword";
 
 export const Login = () => {
   const { userLogin } = useContext(UserContext);
@@ -38,7 +39,7 @@ export const Login = () => {
           register={register("email")}
           error={errors.email}
         />
-        <Input
+        <InputPassword
           label={"Senha"}
           type={"password"}
           placeholder={"Digite aqui sua senha"}

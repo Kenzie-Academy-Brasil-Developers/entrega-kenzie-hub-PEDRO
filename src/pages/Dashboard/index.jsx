@@ -1,11 +1,19 @@
 import { useContext } from "react";
-import logo from "../../assets/Logo.svg";
 import { Button } from "../../components/Button";
 import { UserContext } from "../../providers/UserContext";
 import { StyledDashboardHeader, StyledDashboardMain } from "./style";
+import logo from "../../assets/Logo.svg";
+import plus from "../../assets/+.svg";
+import { TechsContext } from "../../providers/TechsContext";
+import { ModalCreateTechs } from "../../components/ModalCreateTechs";
+import { ModalUpdateTechs } from "../../components/ModalUpdateTechs";
 
 export const Dashboard = () => {
   const { user, userLogout } = useContext(UserContext);
+
+  const { techs, createModal, setCreateModal, updateModal, setUpdateModal } =
+    useContext(TechsContext);
+
   return (
     <>
       <StyledDashboardHeader>
@@ -22,15 +30,36 @@ export const Dashboard = () => {
           </div>
         </section>
         <section className="sectionInfos">
+          <div className="titleTechs">
+            <h2>Tecnologias</h2>
+            <Button action={() => setCreateModal(true)}>
+              <img src={plus} alt="+" />
+            </Button>
+          </div>
           <div>
-            <h2>Que pena! Estamos em desenvolvimento</h2>
-            <p>
-              Nossa aplicação está em desenvolvimento, em breve teremos
-              novidades
-            </p>
+            {techs.length > 0 ? (
+              <ul>
+                {techs.map((tech) => (
+                  <Button
+                    className={"openModalButton"}
+                    action={() => setUpdateModal(tech)}
+                    key={tech.id}
+                  >
+                    <li>
+                      <h3>{tech.title}</h3>
+                      <h4>{tech.status}</h4>
+                    </li>
+                  </Button>
+                ))}
+              </ul>
+            ) : (
+              <h1>Você não tem tecnologias cadastradas</h1>
+            )}
           </div>
         </section>
       </StyledDashboardMain>
+      {createModal ? <ModalCreateTechs /> : null}
+      {updateModal ? <ModalUpdateTechs /> : null}
     </>
   );
 };
